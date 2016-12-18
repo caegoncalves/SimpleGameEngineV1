@@ -74,7 +74,7 @@ public class SGActivity extends Activity {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
-    public void setOrientation(SGOrientation) {
+    public void setOrientation(SGOrientation orientation) {
         switch(orientation) {
             case LANDSCAPE:
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
