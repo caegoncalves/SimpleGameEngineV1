@@ -48,25 +48,25 @@ public class SGActivity extends Activity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.d(TAG, "onRestart( chamado");
+        Log.d(TAG, "onRestart() chamado");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(TAG, "onStart( chamado");
+        Log.d(TAG, "onStart() chamado");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(TAG, "onResume chamado");
+        Log.d(TAG, "onResume() chamado");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(TAG, "onStop( chamado");
+        Log.d(TAG, "onStop() chamado");
     }
 
     public void enableKeepScreenOn() {
