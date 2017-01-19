@@ -11,6 +11,7 @@ import android.view.View;
  */
 
 public class SGView extends View {
+    private SGStepwatch mStepwatch = new SGStepwatch();
     private Point mDimensions = new Point();
     private boolean mHasStarted;
 
@@ -22,12 +23,12 @@ public class SGView extends View {
     public void onDraw(Canvas canvas) {
         canvas.drawColor(Color.LTGRAY); // Pinta atela primeiro e depois insere os elementos por sobreposição
 
-        step(canvas); // Sobrepostos por esse método
+        step(canvas, mStepwatch.tick()); // Sobrepostos por esse método
 
         invalidate(); // Sinalizar ao Android que a tela está suja, invocando novamente onDraw(), esse é o loop de jogo
     }
 
-    public void step(Canvas canvas) { // Método step() será responsável por criar e desenhar os elementos na tela
+    public void step(Canvas canvas, float eleapsedTimeInSeconds) { // Método step() será responsável por criar e desenhar os elementos na tela
     }
 
     @Override
