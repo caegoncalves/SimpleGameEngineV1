@@ -2,6 +2,7 @@ package works.cae.simplegameenginev1;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
@@ -21,6 +22,7 @@ public class SGImageFactory {
     }
 
     public SGImage createImage(String fileName) { // Criação de imagem armazenadas em /assets
+
         Bitmap bitmap = null;
 
         try { // Tratamento de exceções por ser o carregamento de um arquivo externo
@@ -44,10 +46,20 @@ public class SGImageFactory {
         return image;
     }
 
-    public SGImage createImage(int sourceId) {
-        // TODO preencher o método
+    public SGImage createImage(int sourceId) { // Criação de imagem armazenadas em /drawable, quando as imagens são pré-carregadas na RAM
 
-        return null;
+        Bitmap bitmap = null;
+
+        try {
+            Resources resources = mContext.getResources(); // A imagem agora é aberta através dos Resources
+            InputStream inputStream = resources.openRawResource(sourceId);
+            bitmap = BitmapFactory.decodeStream(inputStream);
+            inputStream.close();
+        } catch (IOException e) { } // Bloco vazio pq dificilmente terá erro de entrada, já que o arquivo é pré-carregado e isso é tratado em tempo de compilação, mas é obrigatório por conta do inputStream.close
+
+        SGImage image = new SGImage(bitmap);
+
+        return image;
     }
 
     public Context getmContext() { // Retorna o contexto
