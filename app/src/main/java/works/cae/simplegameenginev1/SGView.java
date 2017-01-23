@@ -11,12 +11,16 @@ import android.view.View;
  */
 
 public class SGView extends View {
+    private SGImageFactory mImageFactory;
     private SGStepwatch mStepwatch = new SGStepwatch();
     private Point mDimensions = new Point();
     private boolean mHasStarted;
 
     public SGView(Context context){
+
         super(context);
+
+        mImageFactory = new SGImageFactory(context);
     }
 
     @Override
@@ -44,6 +48,8 @@ public class SGView extends View {
 
     protected void setup() {
     }
+
+    public SGImageFactory getmImageFactory() { return mImageFactory; }
 
     public Point getDimensions() {
         return mDimensions;
